@@ -5,13 +5,14 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System;
 using UniRx;
+using System.Reflection;
+using System.Linq;
 
 public static class InputHandler
 {
     #region Fields
     private static InputSystem_Actions _inputActions;
-
-    public static Subject<IInputInfo[]> InputInfoEvent;
+    public static Subject<InputAction[]> PlayerInputActionsUpdate;
     //private static TouchInfo _touchInfo;
     private static ActionUpdate _update;
 
@@ -34,14 +35,17 @@ public static class InputHandler
             }
         }
     }
+
+    public static InputSystem_Actions.PlayerActionsActions PlayerActions => _inputActions.PlayerActions;
     #endregion
 
     #region Constructor
     static InputHandler()
     {
         //Debug.Log("Инициализация инпута!");
+        _inputActions = new InputSystem_Actions();
 
-        if(Application.isPlaying)
+        if (Application.isPlaying)
             Initialize();
     }
     #endregion
@@ -49,19 +53,34 @@ public static class InputHandler
     #region Methods
     public static void Initialize()
     {
-        _inputActions = new InputSystem_Actions();
-        InputInfoEvent = new Subject<IInputInfo[]>();
+        PlayerInputActionsUpdate = new Subject<InputAction[]>();
         _update = new ActionUpdate();
 
         _info = new IInputInfo[]
         {
-            
+            new MouseKeyboardInfo(_inputActions)
         };
+
+        BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public;
+        PropertyInfo[] actionsProperties = _inputActions.PlayerActions.GetType().GetProperties(flags);
+
+        if(actionsProperties == null || actionsProperties.Length == 0)
+        {
+            return;
+        }
+
+        List<InputAction> playerInputActions = new List<InputAction>();
+
+        foreach( PropertyInfo property in actionsProperties)
+        {
+            playerInputActions.Add(property.GetValue(_inputActions.PlayerActions) as InputAction);
+        }
 
         _updateAction = delegate 
         {
             //Debug.Log("Апдейт инпута!");
-            InputInfoEvent.OnNext(_info);
+            _inputActions.PlayerActions.GetType().GetProperties();
+            PlayerInputActionsUpdate.OnNext(playerInputActions.ToArray());
         };
     }
 

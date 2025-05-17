@@ -5,5 +5,7 @@ using UnityEngine.InputSystem;
 
 public interface IInputInfo
 {
-    
+    public InputActionPhase UpButtonPhase { get; }
+    public InputActionPhase DownButtonPhase { get; }
+    public InputActionPhase HitButtonPhase { get; }
 }
