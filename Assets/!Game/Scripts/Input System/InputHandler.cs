@@ -99,6 +99,16 @@ public static class InputHandler
 
         //_touchInfo.DisposeActions();
     }
+
+    public static void EnablePlayerInput()
+    {
+        _inputActions.PlayerActions.Enable();
+    }
+
+    public static void DisablePlayerInput()
+    {
+        _inputActions.PlayerActions.Disable();
+    }
     #endregion
 }
 

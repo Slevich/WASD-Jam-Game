@@ -11,12 +11,12 @@ public class ObjectSpawner : MonoBehaviour
     #endregion
 
     #region Methods
-    public void SpawnNewObject()
+    public GameObject SpawnNewObject()
     {
         if(_originalObject == null)
         {
             Debug.LogError("Object spawner has no reference on prefab!");
-            return;
+            return null;
         }
 
         Vector3 spawnPosition = _spawnPoint != null ? _spawnPoint.position : transform.position;
@@ -24,6 +24,7 @@ public class ObjectSpawner : MonoBehaviour
 
         GameObject spawnedObject = Instantiate(_originalObject, spawnPosition, spawnRotation, _objectParent);
         OnSpawnNewObject?.Invoke(spawnedObject);
+        return spawnedObject;
     }
     #endregion
 }

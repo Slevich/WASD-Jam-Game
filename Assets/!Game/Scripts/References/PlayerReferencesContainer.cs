@@ -19,8 +19,14 @@ public class PlayerReferencesContainer : MonoBehaviour
     }
 
     [Header("Input."), Space(5)]
-    [SerializeField] private InputHandlerStateDisplay InputState;
+    [SerializeField] private InputHandlerInstance InputState;
 
     [Header("Selection"), Space(5)]
     [SerializeField] private SelectiveObjectsSequence SelectedConveyor;
+
+    [Header("Score manager."), Space(5)]
+    [SerializeField] private ScoreManager Score;
+
+    [Header("Gameplay settings."), Space(5)]
+    [SerializeField] private GameplaySettings Settings;
 }

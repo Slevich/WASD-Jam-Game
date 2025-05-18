@@ -413,8 +413,6 @@ GameObject:
   - component: {fileID: 3314261713786822466}
   - component: {fileID: 7574902491073966878}
   - component: {fileID: 5040436919665813407}
-  - component: {fileID: 6904398224782649085}
-  - component: {fileID: 7240535904965935876}
   m_Layer: 0
   m_Name: BoxLifetime
   m_TagString: Untagged
@@ -502,63 +500,6 @@ MonoBehaviour:
   _movementDuration: 8
   _movementTarget: {fileID: 8423205746739441119}
   _movementEase: 1
---- !u!114 &6904398224782649085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5067723385832191565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d80a9d5934d0f45a0b1081c8d68d12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onInterval:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7574902491073966878}
-        m_TargetAssemblyTypeName: ObjectSpawner, Assembly-CSharp
-        m_MethodName: SpawnNewObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _intervalTimeStep: 2
---- !u!114 &7240535904965935876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5067723385832191565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d679dae4a0a944ab44f025be1dcfa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _invokationIsBlocked: 0
-  <SelectedInvokationType>k__BackingField: 0
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6904398224782649085}
-        m_TargetAssemblyTypeName: ActionIntervallInstance, Assembly-CSharp
-        m_MethodName: StartInterval
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &5788068799178367089
 GameObject:
   m_ObjectHideFlags: 0

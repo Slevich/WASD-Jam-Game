@@ -562,8 +562,9 @@ GameObject:
   - component: {fileID: 132434758}
   - component: {fileID: 132434759}
   - component: {fileID: 132434760}
+  - component: {fileID: 132434762}
   m_Layer: 0
-  m_Name: BoxLinesConveyors
+  m_Name: LinesController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,6 +632,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 8a0c90474fe0ab84f9b9288ca50f1837, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 915490895}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: IncrementHittedNotesCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -706,6 +719,53 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     _actionName: Hit
+--- !u!114 &132434762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132434757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd525a6b7d7a7c94a9e43265a58270e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - {fileID: 502203808}
+  - {fileID: 362673320}
+  - {fileID: 579745285}
+  - {fileID: 457269725}
+  _onEachSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 915490895}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: IncrementAllNotesCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onEachObjectDestroy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 915490895}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: CheckMissedNoteAndIncrement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &165250675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1206,6 @@ GameObject:
   - component: {fileID: 339106113}
   - component: {fileID: 339106114}
   - component: {fileID: 339106115}
-  - component: {fileID: 339106116}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -1279,35 +1338,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _source: {fileID: 339106114}
---- !u!114 &339106116
+--- !u!114 &362673320 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7574902491073966878, guid: c5308a4dd27f3144a83159a34c20c9c7, type: 3}
+  m_PrefabInstance: {fileID: 301334101}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339106112}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d679dae4a0a944ab44f025be1dcfa6, type: 3}
+  m_Script: {fileID: 11500000, guid: fba6981da770f5547b6e7a1e27e98738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _invokationIsBlocked: 0
-  <SelectedInvokationType>k__BackingField: 0
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 339106115}
-        m_TargetAssemblyTypeName: AudioSetter, Assembly-CSharp
-        m_MethodName: SetClipAndPlay
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 61e149dcccc137441800e8f87a259f26, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &426919260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1381,17 @@ Transform:
   - {fileID: 247996752}
   m_Father: {fileID: 1022958539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &457269725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7574902491073966878, guid: c5308a4dd27f3144a83159a34c20c9c7, type: 3}
+  m_PrefabInstance: {fileID: 6481207716373405500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba6981da770f5547b6e7a1e27e98738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &470276365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,6 +1500,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470276365}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &502203808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7574902491073966878, guid: c5308a4dd27f3144a83159a34c20c9c7, type: 3}
+  m_PrefabInstance: {fileID: 606281903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba6981da770f5547b6e7a1e27e98738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &522869529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1544,17 @@ Transform:
   - {fileID: 339106113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579745285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7574902491073966878, guid: c5308a4dd27f3144a83159a34c20c9c7, type: 3}
+  m_PrefabInstance: {fileID: 642765263}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba6981da770f5547b6e7a1e27e98738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &606281903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1869,6 +1943,52 @@ Transform:
   - {fileID: 132434758}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &774978463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774978464}
+  - component: {fileID: 774978465}
+  m_Layer: 0
+  m_Name: GameplaySettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &774978464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774978463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1954943429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &774978465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774978463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905f91e3b605643498d459d3ebea6b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _notesSpeed: 3
+  _notesTimeStep: 0.25
 --- !u!1 &793196466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2210,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891265390}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &915490893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 915490894}
+  - component: {fileID: 915490895}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &915490894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915490893}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1954943429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915490895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915490893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baaa14878626b4f4292718bb97a9e242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AllNotesCount>k__BackingField: 0
+  HittedNotesCount: 0
+  MissedNotesCount: 0
 --- !u!1 &1022958538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,6 +2717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputState: {fileID: 1690367590}
   SelectedConveyor: {fileID: 132434759}
+  Score: {fileID: 915490895}
+  Settings: {fileID: 774978465}
 --- !u!1 &1272473282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +3006,79 @@ Transform:
   - {fileID: 1890126656}
   m_Father: {fileID: 1495410883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1409586121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409586122}
+  - component: {fileID: 1409586123}
+  m_Layer: 0
+  m_Name: GameStarter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1409586122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409586121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1954943429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1409586123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409586121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d679dae4a0a944ab44f025be1dcfa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _invokationIsBlocked: 0
+  <SelectedInvokationType>k__BackingField: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 339106115}
+        m_TargetAssemblyTypeName: AudioSetter, Assembly-CSharp
+        m_MethodName: SetClipAndPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 61e149dcccc137441800e8f87a259f26, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1690367590}
+        m_TargetAssemblyTypeName: InputHandlerInstance, Assembly-CSharp
+        m_MethodName: UnlockPlayerInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1473401997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,6 +3554,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677600598}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1679557156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1679557157}
+  m_Layer: 0
+  m_Name: BeatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1679557157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679557156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1954943429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688303542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,8 +3703,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1690367589}
   - component: {fileID: 1690367590}
+  - component: {fileID: 1690367591}
   m_Layer: 0
-  m_Name: InputStateDisplay
+  m_Name: InputHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3461,10 +3735,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 1690367588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba153de98f2aaa4997af5f3114bedd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 582637ddef23b594696387a11e56c2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _inputIsEnabled: 0
+  _playerInputIsEnabled: 0
+--- !u!114 &1690367591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690367588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574313cd1593bb64485364379b4d9c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  _onStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1690367590}
+        m_TargetAssemblyTypeName: InputHandlerInstance, Assembly-CSharp
+        m_MethodName: LockPlayerInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDisable:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1779599346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,6 +4252,10 @@ Transform:
   m_Children:
   - {fileID: 1179648863}
   - {fileID: 1690367589}
+  - {fileID: 1409586122}
+  - {fileID: 915490894}
+  - {fileID: 774978464}
+  - {fileID: 1679557157}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1988960082

@@ -73,7 +73,6 @@ public class Beater : MonoBehaviour
 
             if(closeObj.Count > 0)
             {
-                Debug.Log("Recivers in range: " + closeObj.Count);
                 var orderingCloseObjects = closeObj.OrderByDescending(pair => pair.Value);
                 GameObject closeObject = orderingCloseObjects.FirstOrDefault().Key;
                 IHitReceiving receiver = (IHitReceiving)(ComponentsSearcher.GetSingleComponentOfTypeFromObjectAndChildren(closeObject, typeof(IHitReceiving)));

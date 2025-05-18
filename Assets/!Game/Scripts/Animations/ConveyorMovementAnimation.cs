@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -27,25 +28,17 @@ public class ConveyorMovementAnimation : MonoBehaviour
     private float _timeScale = 1f;
     #endregion
 
-    #region Properties
-    public float TimeScale
-    {
-        set
-        {
-            _timeScale = value;
-            _dropDuration = _baseDropDuration * _timeScale;
-            _rotationDuration = _baseRotationDuration * _timeScale;
-            _movementDuration = _baseMovementDuration * _timeScale;
-        }
-    }
-    #endregion
-
     #region Methods
     private void Awake ()
     {
         _baseDropDuration = _dropDuration;
         _baseRotationDuration = _rotationDuration;
         _baseMovementDuration = _movementDuration;
+
+        _timeScale = GameplaySettings.Instance.NotesSpeed;
+        _dropDuration = MathF.Round(_baseDropDuration / _timeScale, 2);
+        _rotationDuration = MathF.Round(_baseRotationDuration / _timeScale, 2);
+        _movementDuration = MathF.Round(_baseMovementDuration / _timeScale, 2);
     }
 
     public void StartMovementAnimation(GameObject MovableObject)
