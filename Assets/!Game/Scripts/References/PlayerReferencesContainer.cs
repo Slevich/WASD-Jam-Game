@@ -20,4 +20,7 @@ public class PlayerReferencesContainer : MonoBehaviour
 
     [Header("Input."), Space(5)]
     [SerializeField] private InputHandlerStateDisplay InputState;
+
+    [Header("Selection"), Space(5)]
+    [SerializeField] private SelectiveObjectsSequence SelectedConveyor;
 }

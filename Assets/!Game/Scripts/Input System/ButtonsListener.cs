@@ -46,12 +46,10 @@ public class EventOnButton
 
         if (inProgress && !_isPressed)
         {
-            Debug.Log("Нажал!");
             _onButtonPressed?.Invoke();
         }
         else if(!inProgress && _isPressed)
         {
-            Debug.Log("Отжал!");
             _onButtonReleased?.Invoke();
         }
 

@@ -5,8 +5,11 @@ public class SelectiveObject : MonoBehaviour, ISelectable
 {
     #region Fields
     [Header("Is currently selected?"), SerializeField, ReadOnly] private bool _selected = false;
+    [Header("Selected beater."), SerializeField] private Beater _selectedBeater;
     [Header("Event on selection."), SerializeField] private UnityEvent _onSelection;
     [Header("Event on deselection."), SerializeField] private UnityEvent _onDeselection;
+
+
     #endregion
 
     #region Methods
@@ -27,5 +30,7 @@ public class SelectiveObject : MonoBehaviour, ISelectable
         _onDeselection?.Invoke();
         _selected = false;
     }
+
+    public Beater ReturnBeater() => _selectedBeater;
     #endregion
 }

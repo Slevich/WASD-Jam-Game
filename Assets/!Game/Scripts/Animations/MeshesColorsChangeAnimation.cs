@@ -22,7 +22,19 @@ public class MeshesColorsChangeAnimation : MonoBehaviour
     #region Methods
     private void Awake()
     {
+        RefreshMaterials();
+        _currentSequence = DOTween.Sequence();
+    }        
+
+    public void RefreshMaterials()
+    {
         _renderers = ComponentsSearcher.GetComponentsOfTypeFromObjectAndAllChildren(transform.gameObject, typeof(MeshRenderer)).Select(comp => comp as MeshRenderer).ToArray();
+
+        if(_renderers == null || _renderers.Length == 0)
+            return;
+
+        _originalColors.Clear();
+
         foreach (MeshRenderer renderer in _renderers)
         {
             foreach (Material material in renderer.materials)
@@ -30,9 +42,7 @@ public class MeshesColorsChangeAnimation : MonoBehaviour
                 _originalColors.Add(material, material.color);
             }
         }
-
-        _currentSequence = DOTween.Sequence();
-    }        
+    }
 
     public void LerpToColorByIndex(int ColorIndex)
     {

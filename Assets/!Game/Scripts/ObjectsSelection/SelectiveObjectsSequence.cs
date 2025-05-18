@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SelectiveObjectsSequence : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class SelectiveObjectsSequence : MonoBehaviour
     [Header("Collection of the ISelected objects"), SerializeField] private GameObject[] _selectiveObjects;
     [SerializeField, HideInInspector] private int _selectiveLength = 0;
     [SerializeField, HideInInspector] private List<ISelectable> _selectables = new List<ISelectable>();
+    [Header("Event on beat selected beater."), SerializeField] private UnityEvent _onSelectedBeaterBeat;
+    [Header("Event on beat selected beater."), SerializeField] private UnityEvent _onSelectedBeaterHit;
+    private Beater _selectedBeater;
     private ISelectable _currentSelectable;
     private int _pointerIndex = -1;
     #endregion
@@ -87,6 +91,7 @@ public class SelectiveObjectsSequence : MonoBehaviour
             _currentSelectable.Deselect();
 
         _currentSelectable = _selectables[_pointerIndex];
+        _selectedBeater = _currentSelectable.ReturnBeater();
         _currentSelectable.Select();
     }
 
@@ -98,6 +103,40 @@ public class SelectiveObjectsSequence : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void HitBySelectedBeater()
+    {
+        if (_selectedBeater == null)
+            return;
+
+        _selectedBeater.BeatHit();
+    }
+
+    private void OnEnable ()
+    {
+        if (_selectables == null || _selectables.Count == 0)
+            return;
+
+        foreach (ISelectable selectable in _selectables)
+        {
+            Beater beater = selectable.ReturnBeater();
+            beater.OnBeat.AddListener(delegate { _onSelectedBeaterBeat?.Invoke(); });
+            beater.OnHit.AddListener(delegate { _onSelectedBeaterHit?.Invoke(); });
+        }
+    }
+
+    private void OnDisable ()
+    {
+        if (_selectables == null || _selectables.Count == 0)
+            return;
+
+        foreach (ISelectable selectable in _selectables)
+        {
+            Beater beater = selectable.ReturnBeater();
+            beater.OnBeat.RemoveListener(delegate { _onSelectedBeaterBeat?.Invoke(); });
+            beater.OnHit.RemoveListener(delegate { _onSelectedBeaterHit?.Invoke(); });
+        }
     }
     #endregion
 }
