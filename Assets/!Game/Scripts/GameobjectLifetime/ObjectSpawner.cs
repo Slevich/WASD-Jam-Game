@@ -7,7 +7,7 @@ public class ObjectSpawner : MonoBehaviour
     [Header("Spawned object prefab."), SerializeField] private GameObject _originalObject;
     [Header("Transform position for the spawn."), SerializeField] private Transform _spawnPoint;
     [Header("Transform parent for the spawned object."), SerializeField] private Transform _objectParent;
-    [Header("Event on spawn new object."), Space(10), SerializeField] private UnityEvent<GameObject> OnSpawnNewObject;
+    [field: Header("Event on spawn new object."), Space(10), SerializeField] public UnityEvent<GameObject> OnSpawnNewObject { get; set; }
     #endregion
 
     #region Methods
@@ -19,6 +19,7 @@ public class ObjectSpawner : MonoBehaviour
             return null;
         }
 
+        Debug.Log("Спавн!");
         Vector3 spawnPosition = _spawnPoint != null ? _spawnPoint.position : transform.position;
         Quaternion spawnRotation = _spawnPoint != null ? _spawnPoint.rotation : Quaternion.identity;
 

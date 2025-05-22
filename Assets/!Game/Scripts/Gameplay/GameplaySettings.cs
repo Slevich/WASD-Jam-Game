@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class GameplaySettings : MonoBehaviour
@@ -29,4 +30,16 @@ public class GameplaySettings : MonoBehaviour
 
     #region Methods
     #endregion
+}
+
+[CustomEditor(typeof(GameplaySettings))]
+public class GameplaySettingsEditor : Editor
+{
+    public override void OnInspectorGUI ()
+    {
+        base.OnInspectorGUI();
+        SerializedProperty timeStepProperty = serializedObject.FindProperty("_notesTimeStep");
+        float timestepValue = timeStepProperty.floatValue;
+        StaticValues.ClipsMinDistanceTime = timestepValue;
+    }
 }

@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106227538a605d145a2cee37c0375315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 1
+  _radius: 1.5
 --- !u!1 &5067656284917071036
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   _originalObject: {fileID: 8542231920144087857, guid: c0d895d09be644c49ba212fcf6bb9ca3, type: 3}
   _spawnPoint: {fileID: 8977568606027692897}
   _objectParent: {fileID: 5349840608427949296}
-  OnSpawnNewObject:
+  <OnSpawnNewObject>k__BackingField:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5040436919665813407}
@@ -847,6 +847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236731558803673213}
+  - component: {fileID: 7382723484423775486}
   - component: {fileID: 1365059985265449367}
   m_Layer: 0
   m_Name: BoxConveyor
@@ -875,6 +876,21 @@ Transform:
   - {fileID: 677049709749497927}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7382723484423775486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8817474434239318062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140c9357c4c927740a706612b55a353e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Info>k__BackingField:
+    <Selective>k__BackingField: {fileID: 1365059985265449367}
+    <Spawner>k__BackingField: {fileID: 7574902491073966878}
 --- !u!114 &1365059985265449367
 MonoBehaviour:
   m_ObjectHideFlags: 0

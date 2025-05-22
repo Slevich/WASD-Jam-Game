@@ -18,15 +18,21 @@ public class PlayerReferencesContainer : MonoBehaviour
         }
     }
 
-    [Header("Input."), Space(5)]
-    [SerializeField] private InputHandlerInstance InputState;
+    [field: Header("Input."), Space(5)]
+    [field: SerializeField] public InputHandlerInstance InputState { get; set; }
 
-    [Header("Selection"), Space(5)]
-    [SerializeField] private SelectiveObjectsSequence SelectedConveyor;
+    [field: Header("Selection"), Space(5)]
+    [field: SerializeField] public SelectiveObjectsSequence SelectedConveyor { get; set; }
 
-    [Header("Score manager."), Space(5)]
-    [SerializeField] private ScoreManager Score;
+    [field:Header("Note spawner."), Space(5)]
+    [field: SerializeField] public ObjectSpawnManager SpawnManager { get; set; }
 
-    [Header("Gameplay settings."), Space(5)]
-    [SerializeField] private GameplaySettings Settings;
+    [field:Header("Score manager."), Space(5)]
+    [field: SerializeField] public ScoreManager Score { get; set; }
+
+    [field:Header("Gameplay settings."), Space(5)]
+    [field: SerializeField] public GameplaySettings Settings { get; set; }
+
+    [field: Header("Gameplay states."), Space(5)]
+    [field: SerializeField] public GameStatesController StatesController { get; set; }
 }

@@ -20,37 +20,19 @@ public class ObjectSpawnManager : MonoBehaviour
         //_beatUpdateTime = GameplaySettings.Instance.NotesTimeStep;
     }
 
-    //public void StartSpawn()
-    //{
-    //    if (_beatInteval != null && _beatInteval.Busy)
-    //        return;
-
-    //    Action spawnAction = delegate
-    //    {
-    //        foreach(ObjectSpawner spawner in _spawners)
-    //        {
-    //            SingleSpawn(spawner);
-    //        }
-    //    };
-
-    //    _beatInteval.StartInterval(_beatUpdateTime, spawnAction);
-    //}
-
-    public void SpawnOnSpawnerByID(int Index)
+    private void Start ()
     {
-        if(Index < 0 || Index >= _spawners.Length)
-        {
-            Debug.LogError("Index of spawner is out of range!");
+        if (_spawners == null || _spawners.Length == 0)
             return;
-        }
 
-        ObjectSpawner spawner = _spawners[Index];
-        SingleSpawn(spawner);
+        foreach(ObjectSpawner spawner in _spawners)
+        {
+            spawner.OnSpawnNewObject.AddListener(ManageSpawnedObject);
+        }
     }
 
-    private void SingleSpawn(ObjectSpawner spawner)
+    private void ManageSpawnedObject(GameObject spawnedObject)
     {
-        GameObject spawnedObject = spawner.SpawnNewObject();
         _onEachSpawn?.Invoke();
 
         OnObjectDestroy onDestroy = null;
@@ -61,13 +43,5 @@ public class ObjectSpawnManager : MonoBehaviour
 
         onDestroy.OnDestroyCallback += delegate { _onEachObjectDestroy?.Invoke(spawnedObject); };
     }
-
-    //public void StopSpawn()
-    //{
-    //    if(_beatInteval != null && _beatInteval.Busy)
-    //        _beatInteval.Stop();
-    //}
-
-    //private void OnDisable () => StopSpawn();
     #endregion
 }
