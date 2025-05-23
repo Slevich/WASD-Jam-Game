@@ -17,6 +17,8 @@ public class NoteClip : PlayableAsset
     public override Playable CreatePlayable (PlayableGraph graph, GameObject owner)
     {
         var playable = ScriptPlayable<NoteBehaviour>.Create(graph);
+
+#if UNITY_EDITOR
         var behaviour = playable.GetBehaviour();
         behaviour.NotePlayable = this;
 
@@ -27,16 +29,16 @@ public class NoteClip : PlayableAsset
             behaviour.ClipStart = timelineClip.start;
             behaviour.ClipDuration = timelineClip.duration;
         }
-
+#endif
         return playable;
-    } 
+    }
 }
 
+#if UNITY_EDITOR
 public static class PlayableAssetExtensions
 {
     public static TimelineClip GetParentClip (this PlayableAsset asset)
     {
-        // Обходной путь: поиск по всем клипам в активном Timeline Asset
         foreach (var view in TimelineEditorUtilities.GetAllTimelineAssets())
         {
             foreach (var track in view.GetOutputTracks())
@@ -53,7 +55,6 @@ public static class PlayableAssetExtensions
     }
 }
 
-// Вспомогательный класс:
 public static class TimelineEditorUtilities
 {
     public static IEnumerable<TimelineAsset> GetAllTimelineAssets ()
@@ -70,3 +71,4 @@ public static class TimelineEditorUtilities
         return timelines;
     }
 }
+#endif

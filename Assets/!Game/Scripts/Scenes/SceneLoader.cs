@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-
     public void LoadSceneByIndex (int sceneIndex)
     {
         Scene currentScene = SceneManager.GetSceneByBuildIndex(sceneIndex);
-        SceneManager.LoadScene(currentScene.name);
+
+        if (currentScene != null)
+            SceneManager.LoadScene(sceneIndex);
     }
 
     public void ReloadCurrentScene()

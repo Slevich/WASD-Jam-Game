@@ -32,6 +32,7 @@ public class GameplaySettings : MonoBehaviour
     #endregion
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(GameplaySettings))]
 public class GameplaySettingsEditor : Editor
 {
@@ -43,3 +44,4 @@ public class GameplaySettingsEditor : Editor
         StaticValues.ClipsMinDistanceTime = timestepValue;
     }
 }
+#endif

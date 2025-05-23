@@ -30,7 +30,5 @@ public class NoteBehaviour : PlayableBehaviour
             NotePlayable.Spawner.SpawnNewObject();
             _noteSpawned = true;
         }
-
-        EditorUtility.SetDirty(NotePlayable);
     }
 }
