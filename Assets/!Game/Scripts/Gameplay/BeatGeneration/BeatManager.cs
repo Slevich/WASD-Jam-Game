@@ -124,7 +124,11 @@ public class BeatManager : MonoBehaviour
             }
 
             if(moments.Count > 0)
+            {
                 _beatContainer.SpawnMoment = moments.ToArray();
+                Debug.Log("записал!");
+            }
+
         }
     }
 
