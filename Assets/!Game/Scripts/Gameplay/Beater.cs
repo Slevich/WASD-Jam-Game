@@ -21,11 +21,6 @@ public class Beater : MonoBehaviour
     private bool _countingLocked = true;
     #endregion
 
-    #region Properties
-    public int HitCount { get; set; } = 0;
-    public int MissedCount { get; set; } = 0;
-    #endregion
-
     #region Methods
     private void Awake ()
     {
@@ -74,15 +69,30 @@ public class Beater : MonoBehaviour
             if(closeObj.Count > 0)
             {
                 var orderingCloseObjects = closeObj.OrderByDescending(pair => pair.Value);
-                GameObject closeObject = orderingCloseObjects.FirstOrDefault().Key;
-                IHitReceiving receiver = (IHitReceiving)(ComponentsSearcher.GetSingleComponentOfTypeFromObjectAndChildren(closeObject, typeof(IHitReceiving)));
+                IHitReceiving receiver = null;
 
-                if(receiver != null)
-                    _hitReceiver = receiver;
+                foreach (var obj in orderingCloseObjects)
+                {
+                    GameObject receiverObj = obj.Key;
+                    receiver = (IHitReceiving)(ComponentsSearcher.GetSingleComponentOfTypeFromObjectAndChildren(receiverObj, typeof(IHitReceiving)));
+
+                    if (receiver != null && receiver.AlreadyHitted == false)
+                    {
+                        _hitReceiver = receiver;
+                        break;
+                    }
+                    else
+                        _hitReceiver = null;
+                }
             }
             else
             {
                 _hitReceiver = null;
+            }
+
+            if (_hitReceiver != null)
+            {
+                BeatHit();
             }
         };
 
@@ -95,27 +105,11 @@ public class Beater : MonoBehaviour
             _detectingInterval.Stop();
     }
 
-    public void UnlockCounting() => _countingLocked = false;
-    public void LockCounting() => _countingLocked = true;
-
     public void BeatHit()
     {
         OnBeat?.Invoke();
-
-        if(!_countingLocked)
-            MissedCount++;
-
-        if (_hitReceiver == null)
-            return;
-
-        if (_hitReceiver.AlreadyHitted)
-            return;
-
         _hitReceiver.HitThis();
         OnHit?.Invoke();
-
-        if(!_countingLocked)
-            HitCount++;
     }
 
     private void OnDisable () => StopDetectingObjectsToBeat();

@@ -23,7 +23,7 @@ public class NoteClip : PlayableAsset
         var timelineClip = this.GetParentClip(); // см. ниже реализацию GetParentClip
         if (timelineClip != null)
         {
-            timelineClip.duration = 0.4;
+            timelineClip.duration = 0.2;
             behaviour.ClipStart = timelineClip.start;
             behaviour.ClipDuration = timelineClip.duration;
         }

@@ -75,6 +75,9 @@ public class EventOnButtonDrawer : PropertyDrawer
         //}
 
         InputSystem_Actions.PlayerActionsActions inputActions = InputHandler.PlayerActions;
+
+
+
         PropertyInfo[] properties = inputActions.GetType().GetProperties(flags);
         IEnumerable<PropertyInfo> buttonsProperties = properties.Where(prop => prop.PropertyType ==  typeof(InputAction));
         

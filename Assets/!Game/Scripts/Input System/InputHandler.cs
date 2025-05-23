@@ -109,6 +109,16 @@ public static class InputHandler
     {
         _inputActions.PlayerActions.Disable();
     }
+
+    public static void EnableUIInput ()
+    {
+        _inputActions.UIInteraction.Enable();
+    }
+
+    public static void DisableUIInput ()
+    {
+        _inputActions.UIInteraction.Disable();
+    }
     #endregion
 }
 

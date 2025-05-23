@@ -19,7 +19,6 @@ public class ObjectSpawner : MonoBehaviour
             return null;
         }
 
-        Debug.Log("Спавн!");
         Vector3 spawnPosition = _spawnPoint != null ? _spawnPoint.position : transform.position;
         Quaternion spawnRotation = _spawnPoint != null ? _spawnPoint.rotation : Quaternion.identity;
 

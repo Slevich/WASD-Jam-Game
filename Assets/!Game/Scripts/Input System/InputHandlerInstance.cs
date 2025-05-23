@@ -10,6 +10,9 @@ public class InputHandlerInstance : MonoBehaviour
     [Header("Player input is currently enabled?"), SerializeField, ReadOnly, Space(5)]
     private bool _playerInputIsEnabled = false;
 
+    [Header("UI input is currently enabled?"), SerializeField, ReadOnly, Space(5)]
+    private bool _uIInputIsEnabled = false;
+
     private void OnEnable ()
     {
         InputHandler.EnableInput();
@@ -32,5 +35,17 @@ public class InputHandlerInstance : MonoBehaviour
     {
         _playerInputIsEnabled = true;
         InputHandler.EnablePlayerInput();
+    }
+
+    public void LockUIInput()
+    {
+        _uIInputIsEnabled = false;
+        InputHandler.DisableUIInput();
+    }
+
+    public void UnlockUIInput ()
+    {
+        _uIInputIsEnabled = true;
+        InputHandler.EnableUIInput();
     }
 }
