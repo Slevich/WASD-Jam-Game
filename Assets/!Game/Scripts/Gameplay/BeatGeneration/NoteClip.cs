@@ -8,10 +8,7 @@ using UnityEngine.Timeline;
 [Serializable]
 public class NoteClip : PlayableAsset
 {
-    [SerializeField, TypeMismatchFix] private ObjectSpawner _spawner;
     [SerializeField] private float _timePosition;
-
-    public ObjectSpawner Spawner { get { return _spawner; } set { _spawner = value; } }
     public float TimePosition { get { return _timePosition; } set { _timePosition = value; } }
 
     public override Playable CreatePlayable (PlayableGraph graph, GameObject owner)
@@ -28,6 +25,7 @@ public class NoteClip : PlayableAsset
             timelineClip.duration = 0.2;
             behaviour.ClipStart = timelineClip.start;
             behaviour.ClipDuration = timelineClip.duration;
+            _timePosition = (float)(timelineClip.start + (timelineClip.duration / 2));
         }
 #endif
         return playable;

@@ -309,8 +309,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7990426341555633615, guid: 92d0559b5b90bc74d814d03f848e3ef2, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 89c73f9c3a622674c95511bb40db0b9d, type: 3}
+  m_Resource: {fileID: 8300000, guid: 89c73f9c3a622674c95511bb40db0b9d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -499,68 +499,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &901999986313513968
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8626331801225487529}
-  - component: {fileID: 1080496049096964874}
-  m_Layer: 0
-  m_Name: SignalReceiver
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8626331801225487529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 901999986313513968}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3666251523293387511}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1080496049096964874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 901999986313513968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: d1048967e989d2b40ad50c455dac37fd, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 413371368395683987}
-          m_TargetAssemblyTypeName: GameStatesController, Assembly-CSharp
-          m_MethodName: ChangeState
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: End
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1038366076482164410
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +637,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3666251523293387511}
   - {fileID: 2120494456763184244}
   m_Father: {fileID: 4241232936042164754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1136,68 +1073,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1805396608456170413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3666251523293387511}
-  - component: {fileID: 2175592161192232211}
-  m_Layer: 0
-  m_Name: NotesContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3666251523293387511
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805396608456170413}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8626331801225487529}
-  m_Father: {fileID: 3651474214616901457}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!320 &2175592161192232211
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805396608456170413}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: a96b4d3450a69a540955a00eeaf7abaf, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -3290203123451887376, guid: a96b4d3450a69a540955a00eeaf7abaf, type: 2}
-    value: {fileID: 3451585580662152765}
-  - key: {fileID: 1685165716878316841, guid: a96b4d3450a69a540955a00eeaf7abaf, type: 2}
-    value: {fileID: 7765894883788493359}
-  - key: {fileID: -9115834276939610801, guid: a96b4d3450a69a540955a00eeaf7abaf, type: 2}
-    value: {fileID: 8432171894354303037}
-  - key: {fileID: -5392671424781739621, guid: a96b4d3450a69a540955a00eeaf7abaf, type: 2}
-    value: {fileID: 6322725546539927070}
-  - key: {fileID: -420443189269735587, guid: a96b4d3450a69a540955a00eeaf7abaf, type: 2}
-    value: {fileID: 4812572690644208108}
-  - key: {fileID: 8158519102755252250, guid: a96b4d3450a69a540955a00eeaf7abaf, type: 2}
-    value: {fileID: 1080496049096964874}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &1867471157043554889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,9 +1943,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2175592161192232211}
-          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 9076830217181942856}
+          m_TargetAssemblyTypeName: BeatManager, Assembly-CSharp
+          m_MethodName: StartNoteSpawn
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2124,9 +1999,9 @@ MonoBehaviour:
     <OnActiveState>k__BackingField:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2175592161192232211}
-          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-          m_MethodName: Pause
+        - m_Target: {fileID: 9076830217181942856}
+          m_TargetAssemblyTypeName: BeatManager, Assembly-CSharp
+          m_MethodName: StopNoteSpawn
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4621,6 +4496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3950354089566899431}
+  - component: {fileID: 9076830217181942856}
   m_Layer: 0
   m_Name: BeatGenerator
   m_TagString: Untagged
@@ -4640,10 +4516,27 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5990636879997331639}
+  m_Children: []
   m_Father: {fileID: 4241232936042164754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9076830217181942856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762004080128531680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038cf6b7e1b13494bb233e3c6218cdfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 4812572690644208108}
+  _tracks:
+  - {fileID: 6322725546539927070}
+  - {fileID: 8432171894354303037}
+  - {fileID: 7765894883788493359}
+  - {fileID: 3451585580662152765}
 --- !u!1 &7766034058499635605
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,52 +5275,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &9177156646689082063
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5990636879997331639}
-  - component: {fileID: 799480965773193965}
-  m_Layer: 0
-  m_Name: BeatManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5990636879997331639
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9177156646689082063}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3950354089566899431}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &799480965773193965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9177156646689082063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038cf6b7e1b13494bb233e3c6218cdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeline: {fileID: 2175592161192232211}
-  _beatContainer: {fileID: 11400000, guid: 7f46f1cf396b7bd45b5d35df6d9a1e9f, type: 2}
 --- !u!1001 &25608826601129005
 PrefabInstance:
   m_ObjectHideFlags: 0

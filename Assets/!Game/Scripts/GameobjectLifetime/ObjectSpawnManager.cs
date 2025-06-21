@@ -13,6 +13,10 @@ public class ObjectSpawnManager : MonoBehaviour
     //private ActionInterval _beatInteval;
     #endregion
 
+    #region Properties
+    public ObjectSpawner[] Spawners => _spawners;
+    #endregion
+
     #region Methods
     private void Awake ()
     {

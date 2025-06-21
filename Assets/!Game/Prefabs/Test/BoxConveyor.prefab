@@ -351,9 +351,12 @@ MonoBehaviour:
   _dropEase: 5
   _rotationDuration: 0.2
   _rotationEase: 24
-  _movementDuration: 8
-  _movementTarget: {fileID: 8423205746739441119}
-  _movementEase: 1
+  _beaterPlaceMovementDuration: 2
+  _beaterPlaceMovementTarget: {fileID: 1707631806887497617}
+  _beaterPlaceMovementEase: 1
+  _endTargetMovementDuration: 0.8
+  _endMovementTarget: {fileID: 8423205746739441119}
+  _endTargetMovementEase: 1
 --- !u!1 &7633923396545755401
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,9 +688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140c9357c4c927740a706612b55a353e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Info>k__BackingField:
-    <Selective>k__BackingField: {fileID: 1365059985265449367}
-    <Spawner>k__BackingField: {fileID: 7574902491073966878}
+  <Spawner>k__BackingField: {fileID: 7574902491073966878}
+  <MovementManager>k__BackingField: {fileID: 5040436919665813407}
+  <SelectiveObject>k__BackingField: {fileID: 1365059985265449367}
 --- !u!114 &1365059985265449367
 MonoBehaviour:
   m_ObjectHideFlags: 0

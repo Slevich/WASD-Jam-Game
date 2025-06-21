@@ -12,7 +12,7 @@ public class NoteBehaviour : PlayableBehaviour
     public double ClipStart { get; set; } = 0f;
     public double ClipDuration { get; set; } = 0f;
 
-    private bool _noteSpawned = false;
+    //private bool _noteSpawned = false;
 
     public override void ProcessFrame (Playable playable, FrameData info, object playerData)
     {
@@ -22,13 +22,13 @@ public class NoteBehaviour : PlayableBehaviour
             return;
 
         float currentTime = (float)(playable.GetTime());
-        NotePlayable.Spawner = clipTrack.Info.Spawner;
-        NotePlayable.TimePosition = (float)(ClipStart + (ClipDuration / 2));
+        //NotePlayable.TrackIndex = clipTrack.Info.TrackIndex;
+        //NotePlayable.TimePosition = (float)(ClipStart + (ClipDuration / 2));
 
-        if(Application.IsPlaying(NotePlayable.Spawner) && !_noteSpawned)
-        {
-            NotePlayable.Spawner.SpawnNewObject();
-            _noteSpawned = true;
-        }
+        //if(Application.IsPlaying(NotePlayable.Spawner) && !_noteSpawned)
+        //{
+        //    NotePlayable.Spawner.SpawnNewObject();
+        //    _noteSpawned = true;
+        //}
     }
 }
