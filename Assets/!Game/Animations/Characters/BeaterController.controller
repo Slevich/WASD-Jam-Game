@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit 0
-  m_Speed: -5.5
+  m_Speed: -6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 792155809023486904}
@@ -44,9 +44,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.002197802
+  m_TransitionDuration: 0.00030446402
   m_TransitionOffset: 0
-  m_ExitTime: 0.99468786
+  m_ExitTime: 222877.38
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 2
@@ -69,9 +69,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.0031603575
+  m_TransitionDuration: 0.00096891075
   m_TransitionOffset: 0
-  m_ExitTime: 0.9898289
+  m_ExitTime: 0.9854461
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 2
@@ -156,9 +156,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.0061031654
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.94878864
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -172,7 +172,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Down
-  m_Speed: -3
+  m_Speed: -4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6459806994543413563}
@@ -199,7 +199,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Up
-  m_Speed: 3
+  m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 916089680329373314}
@@ -260,9 +260,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.0067155063
+  m_TransitionDuration: 0.0010587722
   m_TransitionOffset: 0
-  m_ExitTime: 0.9753847
+  m_ExitTime: 0.9753846
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 2
@@ -322,9 +322,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.0105322
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9586288
+  m_TransitionDuration: 0.0016856119
+  m_TransitionOffset: 159838
+  m_ExitTime: 0.9757776
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 2
@@ -360,7 +360,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit
-  m_Speed: 5
+  m_Speed: 6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1906868308763022323}
@@ -393,9 +393,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.010356635
+  m_TransitionDuration: 0.0017389655
   m_TransitionOffset: 0
-  m_ExitTime: 0.9689302
+  m_ExitTime: 0.98253703
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -409,7 +409,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UpIdle
-  m_Speed: 5
+  m_Speed: 6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6386358887236702040}

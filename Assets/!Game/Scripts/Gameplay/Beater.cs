@@ -15,10 +15,11 @@ public class Beater : MonoBehaviour
 
 
     private List<GameObject> _objectsToBeat = new List<GameObject>();
-    private float _objectToBeatDetectingTimeStep = 0.1f;
+    private float _objectToBeatDetectingTimeStep = 0.05f;
     private ActionInterval _detectingInterval;
+    private ActionTimer _stopDetectingTimer;
+    private float _stopDetectingDelay = 0.2f;
     private IHitReceiving _hitReceiver;
-    private bool _countingLocked = true;
     #endregion
 
     #region Methods
@@ -28,6 +29,7 @@ public class Beater : MonoBehaviour
             _storage.SubscribeOnCollectionChanged(OnCollectionChanged);
 
         _detectingInterval = new ActionInterval();
+        _stopDetectingTimer = new ActionTimer();
     }
 
     public void OnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs args)
@@ -49,6 +51,12 @@ public class Beater : MonoBehaviour
 
     public void StartDetectingObjectsToBeat()
     {
+        if (_stopDetectingTimer != null && _stopDetectingTimer.Busy)
+            _stopDetectingTimer.StopTimer();
+        
+        if(_detectingInterval != null && _detectingInterval.Busy)
+            return;
+            
         Action detectingAction = delegate
         {
             Dictionary<GameObject, float> closeObj = new Dictionary<GameObject, float>();
@@ -101,8 +109,16 @@ public class Beater : MonoBehaviour
 
     public void StopDetectingObjectsToBeat()
     {
-        if(_detectingInterval != null && _detectingInterval.Busy)
-            _detectingInterval.Stop();
+        if(_stopDetectingTimer != null && _stopDetectingTimer.Busy)
+            return;
+        
+        Action stopDetectingAction = delegate
+        {
+            if(_detectingInterval != null && _detectingInterval.Busy)
+                _detectingInterval.Stop();
+        };
+        
+        _stopDetectingTimer.StartTimerAndAction(_stopDetectingDelay, stopDetectingAction);
     }
 
     public void BeatHit()

@@ -15,7 +15,7 @@ public class BeatManager : MonoBehaviour
     [Header("Audio source to play music."), SerializeField] private AudioSource _audioSource;
     [Header("Tracks infos."), SerializeField] private TrackContainer[] _tracks;
 
-    private float _beatUpdateTime = 0.05f;
+    private float _beatUpdateTime = 0.01f;
     private NotesGenerator _notesGenerator;
     private ActionInterval _beatInteval;
     private NoteSpawnMoment[] _notesMoments = new NoteSpawnMoment[] { };
@@ -28,12 +28,13 @@ public class BeatManager : MonoBehaviour
         _beatInteval = new ActionInterval();
         _notesGenerator = new NotesGenerator(_tracks.Length);
         _notesMoments = _notesGenerator.GetNotesSpawnMoments();
-
+        _notesMoments = _notesMoments.OrderBy(moment => moment.Time).ToArray();
+        
         if (_notesMoments.Length > 0)
         {
-            foreach (NoteSpawnMoment moment in _notesMoments)
+            for (int i = 0; i < _notesMoments.Length; i++)
             {
-                _notesQueue.Enqueue(moment);
+                _notesQueue.Enqueue(_notesMoments[i]);
             }
         }
 
@@ -74,7 +75,6 @@ public class BeatManager : MonoBehaviour
             {
                 moment = _notesQueue.Dequeue();
                 spawnTrack.Spawner.SpawnNewObject();
-                Debug.Log("Спавн!");
             }
         };
 
